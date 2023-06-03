@@ -5,4 +5,22 @@ import { Component } from '@angular/core';
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css'],
 })
-export class ServersComponent {}
+export class ServersComponent {
+  allowNewServer = false;
+  serverCreationStatus = 'No server was created';
+  serverName = 'Test';
+
+  constructor() {
+    setTimeout(() => {
+      this.allowNewServer = true;
+    }, 2500);
+  }
+
+  onCreateServer() {
+    this.serverCreationStatus = 'Server ws created!';
+  }
+
+  onUpdateServerName(event: Event) {
+    this.serverName = (<HTMLInputElement>event.target).value;
+  }
+}
