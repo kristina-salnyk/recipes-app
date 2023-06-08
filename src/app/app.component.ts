@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { OddComponent } from './odd/odd.component';
+import { EvenComponent } from './even/even.component';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  username: string = '';
+  numbers: number[] = [];
 
-  onResetUsernameClick() {
-    this.username = '';
+  onChangeCount(countData: number) {
+    this.numbers.push(countData);
   }
 }
