@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Recipes App';
+  currentView: string = 'recipes';
+
+  changeCurrentView(viewName: string) {
+    this.currentView = viewName;
+  }
 }
