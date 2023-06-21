@@ -1,25 +1,58 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <ol>
-        <li>Add a Input field which updates a property ('username') via Two-Way-Binding</li>
-        <li>Output the username property via String Interpolation (in a paragraph below the input)</li>
-        <li>Add a button which may only be clicked if the username is NOT an empty string</li>
-        <li>Upon clicking the button, the username should be reset to an empty string</li>
-      </ol>
-      <hr />
-      <label>Username
-        <input type="text" class="form-control" [(ngModel)]="username" />
-      </label>
-      <p>{{ username }}</p>
       <button
         class="btn btn-primary"
-        [disabled]="!username"
-        (click)="onResetUsernameClick()"
-      >
-        Reset username
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers
       </button>
+      <br><br>
+      <ul class="list-group">
+        <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: odd % 2 !== 0}"
+            [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'}"
+            *ngFor="let odd of oddNumbers">{{odd}}
+          </li>
+        </div>
+        <!--        <div *ngIf="!onlyOdd">-->
+        <!--          <li-->
+        <!--            class="list-group-item"-->
+        <!--            [ngClass]="{odd: even % 2 !== 0}"-->
+        <!--            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"-->
+        <!--            *ngFor="let even of evenNumbers">{{even}}-->
+        <!--          </li>-->
+        <!--        </div>-->
+        <!--        <ng-template [ngIf]="!onlyOdd">-->
+        <!--          <div>-->
+        <!--            <li-->
+        <!--              class="list-group-item"-->
+        <!--              [ngClass]="{odd: even % 2 !== 0}"-->
+        <!--              [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"-->
+        <!--              *ngFor="let even of evenNumbers">{{even}}-->
+        <!--            </li>-->
+        <!--          </div>-->
+        <!--        </ng-template>-->
+        <div *appUnless="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: even % 2 !== 0}"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+            *ngFor="let even of evenNumbers">{{even}}
+          </li>
+        </div>
+      </ul>
+      <!--      <ng-template [ngIf]="onlyOdd">-->
+      <p appBasicHighlight>Only odd</p>
+      <!--      <p appBetterHighlight="'red'" [defaultColor]="'yellow'" [highlightColor]="'red'">Only odd</p>-->
+      <p [appBetterHighlight]="'red'" defaultColor="yellow">Only odd</p>
+      <!--      </ng-template>-->
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchDefault>Value is Default</p>
+      </div>
     </div>
   </div>
 </div>
-
