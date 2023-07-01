@@ -1,13 +1,18 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
 
-import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { AppComponent } from "./app.component";
+import { AccountComponent } from "./account/account.component";
+import { NewAccountComponent } from "./new-account/new-account.component";
+import { AccountsService } from "./accounts.service";
+import { LoggingService } from "./logging.service";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AccountComponent, NewAccountComponent],
   imports: [BrowserModule, FormsModule],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [AccountsService, LoggingService],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}
