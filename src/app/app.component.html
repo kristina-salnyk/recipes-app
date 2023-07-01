@@ -1,24 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <ol>
-        <li>Add a Input field which updates a property ('username') via Two-Way-Binding</li>
-        <li>Output the username property via String Interpolation (in a paragraph below the input)</li>
-        <li>Add a button which may only be clicked if the username is NOT an empty string</li>
-        <li>Upon clicking the button, the username should be reset to an empty string</li>
-      </ol>
+      <p>
+        Optimize this app by adding a UsersService which manages the active and inactive users.
+        Also add a CounterService which counts the number of active->inactive and inactive->active actions.
+      </p>
       <hr />
-      <label>Username
-        <input type="text" class="form-control" [(ngModel)]="username" />
-      </label>
-      <p>{{ username }}</p>
-      <button
-        class="btn btn-primary"
-        [disabled]="!username"
-        (click)="onResetUsernameClick()"
-      >
-        Reset username
-      </button>
+      <app-active-users></app-active-users>
+      <app-inactive-users></app-inactive-users>
     </div>
   </div>
 </div>
