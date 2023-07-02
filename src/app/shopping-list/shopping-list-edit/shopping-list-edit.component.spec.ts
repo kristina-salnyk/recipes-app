@@ -8,7 +8,7 @@ describe('ShoppingListEditComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ShoppingListEditComponent]
+      declarations: [ShoppingListEditComponent],
     });
     fixture = TestBed.createComponent(ShoppingListEditComponent);
     component = fixture.componentInstance;
